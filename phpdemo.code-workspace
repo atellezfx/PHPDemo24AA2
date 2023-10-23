@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "webapp/backend"
+		},
+		{
+			"path": "webapp/dogtorpet"
+		},
+		{
+			"path": "docs"
+		}
+	],
+	"settings": {}
+}
