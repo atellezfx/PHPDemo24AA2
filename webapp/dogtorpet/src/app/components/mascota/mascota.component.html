@@ -1,1 +1,50 @@
-<p>mascota works!</p>
+<div class="card h-100 w-100 shadow">
+    <div class="card-body">
+        <h5 class="card-title text-primary mb-3">
+            <div class="row">
+                <div class="col text-start">{{mascota.nombre}}</div>
+                <div class="col text-end">
+                    <container-element [ngSwitch]="mascota.tipo">
+                        <i class="fa-solid fa-dog" *ngSwitchCase="1"></i>
+                        <i class="fa-solid fa-cat" *ngSwitchCase="2"></i>
+                    </container-element>
+                </div>
+            </div>
+        </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{mascota.fotoUrl}}" class="img-fluid rounded">
+            </div>
+            <div class="col-md-8">
+                <div class="card-text">
+                    <div class="row">
+                        <div class="col">Fecha Nac:</div>
+                        <div class="col">{{mascota.fechaNac}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Raza:</div>
+                        <div class="col">{{mascota.raza}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Color:</div>
+                        <div class="col">{{mascota.color}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Genero:</div>
+                        <div class="col">{{mascota.genero}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col text-start">
+                <a class="fa-solid fa-trash btn-trash"></a>
+            </div>
+            <div class="col text-end">
+                <a class="fa-solid fa-pen-to-square btn-edit"></a>
+            </div>
+        </div>
+    </div>
+</div>

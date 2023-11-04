@@ -1,0 +1,20 @@
+.btn-edit, .btn-trash {
+    color: darkgray;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    color: dodgerblue;
+}
+
+.btn-trash:hover {
+    color: red;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card-body {
+    font-size: small;
+}

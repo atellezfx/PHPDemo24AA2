@@ -1,1 +1,5 @@
-<p>catalogo works!</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let m of mascotas">
+        <app-mascota [mascota]="m"></app-mascota>
+    </div>
+</div>

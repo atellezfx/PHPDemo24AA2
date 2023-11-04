@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Mascota } from 'src/app/models/mascota';
 
 @Component({
   selector: 'app-mascota',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./mascota.component.css']
 })
 export class MascotaComponent {
+
+  @Input()
+  mascota!:Mascota;
 
 }
