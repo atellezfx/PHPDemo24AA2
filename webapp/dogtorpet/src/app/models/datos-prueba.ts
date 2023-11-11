@@ -31,3 +31,4 @@ export let mascotasPrueba: Mascota[] = [
   {id:13, nombre:'Molly', propietario:'jvera', fechaNac:new Date('2021-11-30'), raza:'Pomerania', color:'Beige', genero:'Hembra', tipo:1, fotoUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pomeranian_Thank_You.jpg/250px-Pomeranian_Thank_You.jpg'},
   {id:14, nombre:'Whiskers', propietario:'jvera', fechaNac:new Date('2021-02-10'), raza:'Snowshoe', color:'Blanco/Beige', genero:'Hembra', tipo:2, fotoUrl:'https://i.pinimg.com/474x/dd/ba/94/ddba94a33f2e216182e9f8347b46c2c4--siamese-cats-kitty-cats.jpg'}
 ];
+
