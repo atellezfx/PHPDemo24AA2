@@ -1,5 +1,11 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 export const loginGuard: CanActivateFn = (route, state) => {
-  return true;
+  console.log('Cargando guarda con ruta: ', route.url.pop()?.path);
+  const router = inject(Router);
+  const loginSvc = inject(LoginService);
+  if( loginSvc.loggedIn() ) return true;
+  return router.parseUrl('/login');
 };

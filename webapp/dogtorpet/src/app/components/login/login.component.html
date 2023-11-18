@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div class="card bg-light shadow-lg mx-auto position-absolute top-50 start-50 translate-middle" style="width: 600px;">
+    <img src="/assets/corgi.jpg" class="card-img">
+    <div class="card-img-overlay text-center">
+        <h5 class="card-title text-primary">Ingresar a DogtorPET</h5>
+        <p class="card-text mb-3">Para acceder al sistema es necesario su usuario y contraseña</p>
+        <form [formGroup]="formulario" (ngSubmit)="enviarDatos()" ngNativeValidate>
+            <div class="mt-5 w-50 start-50 position-absolute translate-middle">
+                <input type="text" formControlName="username" class="form-control mb-3 text-center" placeholder="Escribe tu usuario" autofocus required>
+                <input type="password" formControlName="password" class="form-control mb-3 text-center" placeholder="Contraseña" required>
+            </div>
+            <p class="text-danger position-absolute bottom-0 start-0 ms-3">{{mensajeError}}</p>
+            <button type="submit" class="btn btn-primary position-absolute bottom-0 end-0 mb-3 me-3">Ingresar</button>
+        </form>
+    </div>
+
+</div>

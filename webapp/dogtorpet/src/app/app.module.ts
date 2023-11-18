@@ -10,8 +10,9 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { AgregarComponent } from './components/agregar/agregar.component';
 import { EditarComponent } from './components/editar/editar.component';
 import { EliminarComponent } from './components/eliminar/eliminar.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './util/jwt.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,9 @@ import { JwtInterceptor } from './util/jwt.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [

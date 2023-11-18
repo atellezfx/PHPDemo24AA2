@@ -1,0 +1,24 @@
+{
+    "name": "utel/backend",
+    "type": "project",
+    "license": "GNU GPL (General Public License)",
+    "authors": [
+        {
+            "name": "atellezf",
+            "email": "alejandro@correo.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.12",
+        "slim/psr7": "^1.6",
+        "tuupola/cors-middleware": "^1.4",
+        "tuupola/slim-jwt-auth": "^3.8",
+        "rbdwllr/psr-jwt": "^2.0",
+        "monolog/monolog": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "DogtorPET\\Backend\\": "src/"
+        }
+    }
+}
