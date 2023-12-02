@@ -10,5 +10,22 @@
 			"path": "docs"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "dogtorpet",
+				"username": "root",
+				"password": "12345",
+				"database": "dogtorpet"
+			}
+		]
+	}
 }
