@@ -1,1 +1,14 @@
-<p>eliminar works!</p>
+<div class="modal-header bg-danger text-white">
+  <h5 class="modal-title">Confirmar Operación</h5>
+</div>
+<div class="modal-body">
+  <p class="text-center">{{mensaje}}</p>
+  <div class="row mt-4">
+    <div class="col">
+      <button type="button" class="btn btn-white" (click)="activeModal.close(false)" ngbAutofocus>Cancelar</button>
+    </div>
+    <div class="col text-end">
+      <button type="button" class="btn btn-danger" (click)="activeModal.close(true)" >Aceptar</button>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,73 @@
-<p>editar works!</p>
+<div class="card w-100 border-white">
+  <div class="card-body">
+    <form ngNativeValidate [formGroup]="formulario" (ngSubmit)="enviarDatos()">
+      <input type="hidden" formControlName="id">
+      <input type="hidden" formControlName="propietario">
+      <div class="row mb-4">
+        <div class="col">
+          <h3 class="card-title text-primary">Editar Mascota</h3>
+        </div>
+        <div class="col text-end">
+          <button type="button" class="btn btn-secondary btn-sm me-3" routerLink="">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="form-group">
+            <label for="nombre" class="text-muted">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre" required autofocus>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="raza" class="text-muted">Raza</label>
+            <input type="text" class="form-control" id="raza" formControlName="raza" placeholder="Raza" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="color" class="text-muted">Color</label>
+            <input type="text" class="form-control" id="color" formControlName="color" placeholder="Color" required>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="form-group">
+            <label for="fechaNac" class="text-muted">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechaNac" formControlName="fechaNac" min="1990-01-01" max="2022-12-31">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="genero" class="text-muted">Genero</label>
+            <select name="genero" class="form-select" id="genero" formControlName="genero">
+              <option value="" disabled>Selecciona el género</option>
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="tipo" class="text-muted">Tipo</label>
+            <select name="tipo" class="form-select" id="tipo" formControlName="tipo">
+              <option value="" disabled>Selecciona el tipo</option>
+              <option value="1" selected>Perro</option>
+              <option value="2">Gato</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="fotoUrl" class="text-muted">Foto url:</label>
+            <input type="url" class="form-control" id="fotoUrl" formControlName="fotoUrl" placeholder="Link de la foto">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

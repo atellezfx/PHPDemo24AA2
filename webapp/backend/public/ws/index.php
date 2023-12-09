@@ -4,14 +4,38 @@ require __DIR__ . '/../../vendor/autoload.php';
 use DogtorPET\Backend\Rest\TipoController;
 use DogtorPET\Backend\Rest\MascotaController;
 use DogtorPET\Backend\Rest\LoginController;
-
+use DogtorPET\Backend\Util\Config;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+use Tuupola\Middleware\CorsMiddleware;
+use Tuupola\Middleware\JwtAuthentication;
 
 $app = AppFactory::create();
+$config = Config::obtenerInstancia();
+$logger = $config->crearLog();
 
-// TODO: Configurar intermediarios (middleware) para habilitar las llamadas remotas (CORS)
+#### ENSAMBLANDO LOS INTERMEDIARIOS (MIDDLEWARE) ##############################################
+$app->add( new CorsMiddleware([
+    'origin' => ['*'], // En fase de desarollo (no usar * en producción)
+    'methods' => ['GET','POST','PUT','DELETE','PATCH','OPTIONS'],
+    'headers.allow' => ['Authorization', 'Content-Type', '*'],
+    'logger' => $logger
+]) );
+
+$app->add( new JwtAuthentication([
+    'path' => ['/ws'],
+    'ignore' => ['/ws/login'],
+    'secret' => $config->jwtSecret(),
+    'logger' => $logger,
+    'secure' => false, // Permite llamadas por HTTP (no usar en producción)
+    'error' => function($response, $args) {
+        $mensaje = ['codigo' => 'error', 'mensaje'=>$args['message']];
+        $response->getBody()->write( json_encode($mensaje) );
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(401);
+    }
+]) );
+###############################################################################################
 
 $app->get('/ws/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];

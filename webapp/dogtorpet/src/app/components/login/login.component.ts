@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Token, Mensaje } from 'src/app/models/auth';
 import { Usuario } from 'src/app/models/usuario';
 import { LoginService } from 'src/app/services/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -27,8 +29,16 @@ export class LoginComponent {
     });
   }
 
-  public procesarRespuesta( datos:any, usuario:Usuario ): void { // TODO: Mejorar el tipo del parámetro datos
-    this.router.navigateByUrl('/catalogo');
+  public procesarRespuesta( datos:Token|Mensaje, usuario:Usuario ): void {
+    if( 'token' in datos ) {
+      localStorage.setItem( environment.usuarioActual, usuario.username );
+      localStorage.setItem( environment.authToken, datos.token );
+      this.router.navigateByUrl('/catalogo');
+    } else {
+      localStorage.removeItem( environment.usuarioActual );
+      localStorage.removeItem( environment.authToken );
+      this.mensajeError = `${datos.codigo}: ${datos.mensaje}`;
+    }
   }
 
 }

@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark" *ngIf="loginSvc.loggedIn()">
   <div class="container-fluid">
     <span class="navbar-brand ms-2 h1 mb-0">
       <i class="fa-solid fa-paw"></i> {{titulo}}
     </span>
     <div class="navbar-nav align-items-end">
-      <button class="btn btn-primary me-4">Agregar</button>
-      <button class="btn btn-secondary">Cerrar Sesión</button>
+      <button class="btn btn-primary me-4" routerLink="/nuevo">Agregar</button>
+      <button class="btn btn-secondary" (click)="cerrarSesion()">Cerrar Sesión</button>
     </div>
   </div>
 </nav>
